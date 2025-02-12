@@ -55,7 +55,7 @@ android {
 
         minSdk = 24
     }
-    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -66,7 +66,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.mohaberabi",
         artifactId = "device-kit",
-        version = "0.0.2"
+        version = "0.0.5"
     )
 
     pom {
