@@ -14,8 +14,7 @@ import platform.UIKit.UIUserInterfaceIdiomPad
 import platform.UIKit.UIUserInterfaceIdiomPhone
 import platform.UIKit.UIUserInterfaceIdiomTV
 
-@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-actual class DefaultDeviceKit : DeviceKit {
+class IosDeviceKit : DeviceKit {
     override val osName: String = "IOS"
     override val osVersionName: String = UIDevice.currentDevice.systemName
     override val osVersion: String = UIDevice.currentDevice.systemVersion

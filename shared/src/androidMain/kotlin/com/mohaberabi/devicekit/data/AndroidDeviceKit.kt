@@ -17,15 +17,11 @@ import com.mohaberabi.devicekit.data.helper.totalInternalStorageSize
 import com.mohaberabi.devicekit.domain.DeviceKit
 import device_info.mapVersionCodeToName
 
-@Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-actual class DefaultDeviceKit(
-    private val context: Context
+class AndroidDeviceKit(
+    context: Context
 ) : DeviceKit {
-
-
     override val osName: String = "Android"
     override val osVersion: String = VERSION.RELEASE
-
     private val releaseText =
         osVersion.replace("(\\d+[.]\\d+)(.*)", "$1").toDoubleOrNull() ?: 0.0
     override val osVersionName: String = releaseText.mapVersionCodeToName()

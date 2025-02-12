@@ -8,6 +8,6 @@ class AndroidDeviceKitFactory(
     private val context: Context
 ) : DeviceKitFactory {
     override fun create(): DeviceKit {
-        return DefaultDeviceKit(context.applicationContext)
+        return AndroidDeviceKit(context.applicationContext)
     }
 }
