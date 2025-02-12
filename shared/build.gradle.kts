@@ -20,7 +20,7 @@ kotlin {
             }
         }
     }
-    
+
     val xcf = XCFramework()
     listOf(
         iosX64(),
@@ -35,6 +35,10 @@ kotlin {
     }
 
     sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.core.ktx)
+
+        }
         commonMain.dependencies {
             //put your multiplatform dependencies here
         }
