@@ -52,6 +52,7 @@ android {
     namespace = "com.mohaberabi.devicekit"
     compileSdk = 35
     defaultConfig {
+
         minSdk = 24
     }
     
