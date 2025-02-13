@@ -3,21 +3,29 @@ package com.mohaberabi.devicekit.data.helper
 import android.app.ActivityManager
 import android.content.Context
 import androidx.core.content.getSystemService
+import com.mohaberabi.devicekit.domain.RAMKit
 import com.mohaberabi.devicekit.domain.constants.BYTE_NUMBER
 
-fun Context.getTotalRam() =
+class AndroidRAMKit(
+    override val availableRam: Long,
+    override val totalRam: Long
+) : RAMKit {
+    override val ramInfo: String = "Available:${availableRam} MB\\nTotal:${totalRam} MB\""
+}
+
+internal fun Context.getTotalRam() =
     with(requireNotNull(getSystemService<ActivityManager>())) { getTotalRam() }
 
-fun Context.availableRam() =
+internal fun Context.availableRam() =
     with(requireNotNull(getSystemService<ActivityManager>())) { availableRam() }
 
-fun ActivityManager.getTotalRam(): Long {
+internal fun ActivityManager.getTotalRam(): Long {
     val memInfo = ActivityManager.MemoryInfo()
     getMemoryInfo(memInfo)
     return memInfo.totalMem / (BYTE_NUMBER * BYTE_NUMBER)
 }
 
-fun ActivityManager.availableRam(): Long {
+internal fun ActivityManager.availableRam(): Long {
     val memInfo = ActivityManager.MemoryInfo()
     getMemoryInfo(memInfo)
     return memInfo.availMem / (BYTE_NUMBER * BYTE_NUMBER)

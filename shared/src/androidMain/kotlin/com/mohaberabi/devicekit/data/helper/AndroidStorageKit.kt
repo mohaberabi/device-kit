@@ -3,8 +3,19 @@ package com.mohaberabi.devicekit.data.helper
 import android.content.Context
 import android.os.Environment
 import android.os.StatFs
+import com.mohaberabi.devicekit.domain.StorageKit
 import com.mohaberabi.devicekit.domain.constants.BYTE_NUMBER
 
+internal class AndroidStorageKit(
+    availableExternal: Long?,
+) : StorageKit {
+    override val availableExternalStorageSize: Long? = availableExternal
+    override val totalInternalStorageSize: Long = totalInternalStorageSize()
+    override val availableInternalStorageSize: Long = availableInternalStorageSize()
+    override val storageInfo: String = ""
+    override val externalStorageAvailable: Boolean = isExternalStorageAvailable
+
+}
 
 internal val isExternalStorageAvailable =
     Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED

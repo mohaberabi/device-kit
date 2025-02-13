@@ -66,7 +66,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.mohaberabi",
         artifactId = "device-kit",
-        version = "0.0.5"
+        version = "0.0.6"
     )
 
     pom {

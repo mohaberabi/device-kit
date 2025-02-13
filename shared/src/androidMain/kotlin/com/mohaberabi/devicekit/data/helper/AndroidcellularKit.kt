@@ -3,6 +3,13 @@ package com.mohaberabi.devicekit.data.helper
 import android.content.Context
 import android.telephony.TelephonyManager
 import androidx.core.content.getSystemService
+import com.mohaberabi.devicekit.domain.CellKit
+import com.mohaberabi.devicekit.domain.constants.subStringOrNull
+
+internal class AndroidcellularKit(
+    override val mobileNetworkCode: String?,
+    override val mobileCountryCode: String?
+) : CellKit
 
 internal fun Context.mobileNetworkCode(): String? =
     with(requireNotNull(getSystemService<TelephonyManager>())) { mobileNetworkCode() }
@@ -16,18 +23,4 @@ internal fun TelephonyManager.mobileNetworkCode(): String? {
     if ("$mnc".count() < 2) return "0$mnc"
     return "$mnc"
 
-}
-
-fun String.subStringOrNull(start: Int, end: Int? = null): String? {
-    if (start >= length) {
-        return null
-    }
-
-    if (end != null) {
-        if (end >= length) {
-            return null
-        }
-        return substring(start, end)
-    }
-    return substring(start)
 }
