@@ -25,7 +25,7 @@ commonMain.dependencies {
 ### Common Code
 
 ```kotlin
-import com.yourpackage.devicekit.*
+import com.mohaberabi.DeviceKit.devicekit.*
 
 fun provideDeviceKit(factory: DeviceKitFactory) = factory.create()
 ```
