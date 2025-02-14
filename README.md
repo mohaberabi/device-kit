@@ -16,7 +16,7 @@ Add the following dependency to your **Kotlin Multiplatform** project:
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.mohaberabi:device-kit:0.0.6")
+    implementation("io.github.mohaberabi:device-kit:0.0.6")
 }
 ```
 
